@@ -1,7 +1,6 @@
 {
   "name": "nextarc-studio",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "vercel dev",
     "start": "vercel dev"
