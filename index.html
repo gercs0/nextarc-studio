@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NextArc Studio</title>
+  <meta name="description" content="NextArc Studio — where athletes and creators connect. Post what you need. Pros reply fast.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html{scroll-behavior:smooth;}
+    body{background:#0a0a0a;color:#f5f5f5;font-family:Inter,ui-sans-serif,system-ui,-apple-system;}
+    .container{max-width:1000px;margin-inline:auto;padding-inline:1rem;}
+    .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:16px}
+    .btn{display:inline-flex;gap:.5rem;align-items:center;font-weight:700;border-radius:12px;padding:.65rem 1rem}
+    .btn-primary{background:#fff;color:#0a0a0a}.btn-primary:hover{filter:brightness(.92)}
+    .btn-ghost{border:1px solid rgba(255,255,255,.25);color:#f5f5f5}
+    .muted{color:#cbd5e1}.dim{color:#94a3b8}
+    #request-form{scroll-margin-top:90px}
+    .hero-overlay,.preview-overlay,.page-cover,.click-shield{pointer-events:none!important}
+    .btn,.card,.cta{position:relative;z-index:5}
+    input,textarea,select{width:100%;background:#0f0f10;border:1px solid #27272a;border-radius:10px;color:#f8fafc;padding:.7rem .9rem}
+    textarea{min-height:120px;resize:vertical}
+    label{font-size:.9rem;color:#d1d5db}
+    a{text-decoration:none}
+  </style>
+</head>
+<body>
+  <header class="sticky top-0 z-40 backdrop-blur bg-black/60 border-b border-white/10">
+    <div class="container py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="/assets/logo.png" alt="NextArc Studio" class="h-8 w-8 object-contain">
+        <div class="text-xl font-extrabold">NextArc Studio</div>
+      </div>
+      <nav class="flex items-center gap-6 text-sm">
+        <a class="opacity-80 hover:opacity-100" href="#how">How it works</a>
+        <a class="opacity-80 hover:opacity-100" href="#faq">FAQ</a>
+        <a class="btn btn-primary cta" data-post href="#request-form">Post a Request</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="py-8 lg:py-12">
+      <div class="text-sm dim mb-2">Demand-first • Buyers free</div>
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+        Where athletes and creators connect — <span class="underline decoration-white/40">NextArc Studio</span>.
+      </h1>
+      <p class="mt-4 text-white/80 max-w-2xl">
+        Post what you need. Add reference images for clarity. Editors, designers, and scouts reply fast with offers and samples.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a class="btn btn-primary cta" data-post href="#request-form">Post a Request</a>
+        <a id="joinDiscordLink" href="https://discord.gg/NCYbWRjrU" target="_blank" rel="noopener" class="btn btn-ghost">Join Creator Room</a>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4 mt-10">
+        <div class="card p-5">
+          <div class="text-sm uppercase tracking-wide text-white/60">Category</div>
+          <div class="text-2xl font-bold">Highlight Edit</div>
+          <div class="mt-2 text-white/80 text-sm">Budget <b>$20</b> • Deadline <b>48h</b></div>
+          <div class="mt-4 text-sm text-white/70">Post a request in 30 seconds. Attach references for faster, better offers.</div>
+        </div>
+        <div class="card p-5">
+          <div class="text-sm uppercase tracking-wide text-white/60">Category</div>
+          <div class="text-2xl font-bold">Custom Jersey Design</div>
+          <div class="mt-2 text-white/80 text-sm">Budget <b>$30</b> • Deadline <b>3 days</b></div>
+          <div class="mt-4 text-sm text-white/70">Editors & designers reply in minutes.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="py-10 border-t border-white/10">
+      <h2 class="text-2xl font-bold mb-4">How it works</h2>
+      <ol class="list-decimal pl-5 space-y-2 text-white/80">
+        <li>Tell us what you need and your deadline.</li>
+        <li>Attach reference images (optional, up to 4).</li>
+        <li>We post it to Discord. Creators reply with offers & samples.</li>
+        <li>You choose the best offer and pay the creator directly.</li>
+      </ol>
+    </section>
+
+    <section id="request-form" class="py-12 border-t border-white/10">
+      <h2 class="text-2xl font-bold mb-6">Post a Request</h2>
+      <form id="requestForm" class="grid gap-4" enctype="multipart/form-data">
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label>Category</label>
+            <select name="category" required>
+              <option value="Highlight Edit">Highlight Edit</option>
+              <option value="Custom Jersey Design">Custom Jersey Design</option>
+              <option value="Logo / Branding">Logo / Branding</option>
+              <option value="Social Media Package">Social Media Package</option>
+              <option value="Athlete Scouting">Athlete Scouting</option>
+            </select>
+          </div>
+          <div>
+            <label>Budget (USD)</label>
+            <input type="number" name="budget" placeholder="e.g. 25" required>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label>Deadline</label>
+            <input type="text" name="deadline" placeholder="e.g. 48h or 2 days" required>
+          </div>
+          <div>
+            <label>Contact (Discord @ or Email)</label>
+            <input type="text" name="contact" placeholder="@username or you@email.com" required>
+          </div>
+        </div>
+
+        <div>
+          <label>Describe your request</label>
+          <textarea name="details" placeholder="What do you need? What style? Any examples?" required></textarea>
+        </div>
+
+        <div>
+          <label>Reference Images (up to 4)</label>
+          <input type="file" name="images[]" accept="image/*" multiple>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button type="submit" class="btn btn-primary">Submit Request</button>
+          <span class="text-white/60 text-sm">Images upload to Cloudinary, link auto-posted to Discord.</span>
+        </div>
+      </form>
+    </section>
+
+    <section id="faq" class="py-12 border-t border-white/10">
+      <h2 class="text-2xl font-bold mb-6">FAQ</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card p-5">
+          <h3 class="font-semibold text-lg mb-2">How fast do I get offers?</h3>
+          <p class="text-white/70">Usually within minutes. Add reference images for faster responses.</p>
+        </div>
+        <div class="card p-5">
+          <h3 class="font-semibold text-lg mb-2">How do I pay?</h3>
+          <p class="text-white/70">You pay the creator directly after you pick an offer (we just connect you).</p>
+        </div>
+        <div class="card p-5">
+          <h3 class="font-semibold text-lg mb-2">Are images safe?</h3>
+          <p class="text-white/70">We upload them to Cloudinary and only share links to your Discord request.</p>
+        </div>
+        <div class="card p-5">
+          <h3 class="font-semibold text-lg mb-2">What if I need revisions?</h3>
+          <p class="text-white/70">Discuss edits with the creator in Discord before payment.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-10 border-t border-white/10 text-white/60 text-sm">
+      © <span id="y"></span> NextArc Studio
+    </footer>
+  </main>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
