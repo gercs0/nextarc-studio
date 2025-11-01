@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "functions": { "api/submit.js": { "runtime": "nodejs18.x" } },
+  "functions": {
+    "api/submit.js": { "runtime": "nodejs18.x" }
+  },
   "builds": [
     { "src": "index.html", "use": "@vercel/static" },
+    { "src": "app.js", "use": "@vercel/static" },
+    { "src": "assets/**/*", "use": "@vercel/static" },
     { "src": "api/submit.js", "use": "@vercel/node" }
   ],
   "routes": [
