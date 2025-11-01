@@ -7,6 +7,7 @@
   ],
   "routes": [
     { "src": "/api/submit", "dest": "/api/submit.js" },
+    { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
